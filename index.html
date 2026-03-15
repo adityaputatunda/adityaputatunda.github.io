@@ -132,6 +132,9 @@
   .talk-date { font-size: 0.78rem; color: var(--text-light); font-weight: 500; white-space: nowrap; }
   .talk-title { font-family: var(--serif); font-size: 0.95rem; font-weight: 600; color: var(--text); line-height: 1.4; margin-bottom: 0.25rem; }
   .talk-venue { font-size: 0.84rem; color: var(--text-muted); line-height: 1.5; }
+  .talk-venues { margin-top: 0.3rem; }
+  .talk-venue-line { font-size: 0.84rem; color: var(--text-muted); line-height: 1.7; }
+  .talk-venue-date { color: var(--text-light); }
   .talk-type { display: inline-block; font-size: 0.65rem; font-weight: 600; padding: 0.12rem 0.45rem; border-radius: 2px; margin-left: 0.5rem; vertical-align: middle; }
   .talk-type-talk { background: var(--accent-light); color: var(--accent); }
   .talk-type-poster { background: var(--tag-multiferroics-bg); color: var(--tag-multiferroics); }
@@ -352,6 +355,15 @@ function render(D) {
         let badge = '';
         if (t.type === 'talk') badge = ' <span class="talk-type talk-type-talk">talk</span>';
         if (t.type === 'poster') badge = ' <span class="talk-type talk-type-poster">poster</span>';
+        if (t.venues) {
+          const venueLines = t.venues.map(v =>
+            `<div class="talk-venue-line"><span class="talk-venue-date">${v.date}</span> · ${v.venue}</div>`
+          ).join('');
+          return `<div class="talk-item talk-item-multi" style="animation-delay:${0.05 + i * 0.02}s">
+            <div class="talk-date">${t.venues[0].date}</div>
+            <div><div class="talk-title">${t.title}${badge}</div><div class="talk-venues">${venueLines}</div></div>
+          </div>`;
+        }
         return `<div class="talk-item" style="animation-delay:${0.05 + i * 0.02}s">
           <div class="talk-date">${t.date}</div>
           <div><div class="talk-title">${t.title}${badge}</div><div class="talk-venue">${t.venue}</div></div>

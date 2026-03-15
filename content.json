@@ -271,8 +271,11 @@
   "talks": {
     "intro": "Conference contributions, invited talks, and posters.",
     "items": [
-      { "date": "Jul 2025", "title": "Magnetoelectric control in type-I multiferroics via domain walls", "venue": "FisMat 2025, Venice", "type": "talk" },
-      { "date": "Mar 2025", "title": "Magnetoelectric control in type-I multiferroics via domain walls", "venue": "DPG Spring Meeting, Regensburg", "type": "talk" },
+      { "title": "Magnetoelectric control in type-I multiferroics via domain walls", "type": "talk", "venues": [
+          { "date": "Jul 2025", "venue": "FisMat 2025, Venice" },
+          { "date": "Mar 2025", "venue": "DPG Spring Meeting, Regensburg" }
+        ]
+      },
       { "date": "Jan 2024", "title": "Workshop on Twistronics and Moiré Materials", "venue": "ICTP, Trieste" },
       { "date": "Mar 2023", "title": "DPG Spring Meeting", "venue": "Berlin", "type": "talk" },
       { "date": "Aug 2022", "title": "Twisted CrI₃ bilayer", "venue": "Psi-K Conference, Lausanne", "type": "poster" },
