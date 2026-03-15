@@ -1,0 +1,295 @@
+{
+  "site": {
+    "name": "Aditya Putatunda",
+    "footer": "Aditya Putatunda · PhD, Physics"
+  },
+
+  "profiles": [
+    { "label": "Google Scholar", "url": "https://scholar.google.com/citations?hl=en&user=37RlrzsAAAAJ&view_op=list_works&sortby=pubdate" },
+    { "label": "LinkedIn", "url": "https://www.linkedin.com/in/aditya-putatunda/" },
+    { "label": "ORCID", "url": "https://orcid.org/0000-0001-9364-9615" },
+    { "label": "ResearchGate", "url": "https://www.researchgate.net/profile/Aditya-Putatunda" },
+    { "label": "Scopus", "url": "https://www.scopus.com/authid/detail.uri?authorId=57188641407" }
+  ],
+
+  "home": {
+    "greeting": "Hi, I'm",
+    "name": "Aditya Putatunda.",
+    "role": [
+      "Senior Research Fellow",
+      "<strong>National Research Council (CNR)-SPIN</strong> &amp; <strong>University of Milan-Bicocca</strong>",
+      "Milan, Italy"
+    ],
+    "summary": "I study materials where magnetic and electric properties are intertwined, thermoelectric materials that convert waste heat into electricity, and build computational tools to discover and screen new ones at scale.",
+    "news": [
+      {
+        "date": "2025",
+        "title": "New paper in Physical Review B",
+        "blurb": "Domain walls and vortices in multiferroic BaCoSiO₄ — exploring magnetoelectric control via trimerization."
+      },
+      {
+        "date": "Jul 2025",
+        "title": "Talk at FisMat 2025, Venice",
+        "blurb": "Presenting on magnetoelectric control in type-I multiferroics via domain walls."
+      },
+      {
+        "date": "2025",
+        "title": "Group IV carbides published",
+        "blurb": "New double-layer honeycomb structures in group IV binary carbides, in J. Appl. Phys."
+      }
+    ]
+  },
+
+  "research": {
+    "intro": "I study multiferroic materials where magnetic and electric properties are intertwined, thermoelectric materials that can convert waste heat into electricity, and build computational tools to discover and screen new ones at scale.",
+    "sections": [
+      {
+        "title": "Multiferroics & Magnetism",
+        "pitch": "How magnetic order emerges, competes, and can be tuned in materials where magnetism and electrical polarization coexist.",
+        "tags": ["magnetism", "multiferroics", "transport"],
+        "projects": [
+          {
+            "title": "Domain walls & vortices in multiferroic BaCoSiO₄",
+            "journal": "Phys. Rev. B",
+            "citation": "111, 184101 (2025)",
+            "url": "https://journals.aps.org/prb/abstract/10.1103/PhysRevB.111.184101",
+            "tags": ["magnetism", "multiferroics"]
+          },
+          {
+            "title": "Strain-tuned magnetism in Bi₂FeCrO₆ thin films",
+            "journal": "Phys. Rev. B",
+            "citation": "93, 104415 (2016)",
+            "url": "https://journals.aps.org/prb/abstract/10.1103/PhysRevB.93.104415",
+            "tags": ["magnetism", "multiferroics"]
+          },
+          {
+            "title": "Properties of antiferromagnetic MnSeO₃ and ZnSeO₃",
+            "journal": "J. Phys.: Condens. Matter",
+            "citation": "29, 405501 (2017)",
+            "url": "https://iopscience.iop.org/article/10.1088/1361-648X/aa7f89",
+            "tags": ["magnetism", "discovery"]
+          },
+          {
+            "title": "Competing magnetic orders in quantum critical Sr₃Ru₂O₇",
+            "journal": "Phys. Rev. B",
+            "citation": "102, 014442 (2020)",
+            "url": "https://journals.aps.org/prb/abstract/10.1103/PhysRevB.102.014442",
+            "tags": ["magnetism", "transport"]
+          }
+        ]
+      },
+      {
+        "title": "Electronic Transport & Thermoelectrics",
+        "pitch": "Developing and testing computational tools to evaluate how materials convert waste heat into electricity.",
+        "tags": ["transport", "methods", "discovery"],
+        "projects": [
+          {
+            "title": "Accuracy of Lorenz number estimates",
+            "journal": "Mater. Today Phys.",
+            "citation": "8, 49–55 (2019)",
+            "url": "https://www.sciencedirect.com/science/article/pii/S2542529318301561",
+            "tags": ["transport", "methods"]
+          },
+          {
+            "title": "Thermoelectric properties of layered NaSbSe₂",
+            "journal": "J. Phys.: Condens. Matter",
+            "citation": "30, 225501 (2018)",
+            "url": "https://iopscience.iop.org/article/10.1088/1361-648X/aabf5b",
+            "tags": ["transport", "discovery"]
+          },
+          {
+            "title": "Electronic screening for half-Heusler thermoelectrics",
+            "journal": "Phys. Rev. B",
+            "citation": "100, 085202 (2019)",
+            "url": "https://journals.aps.org/prb/abstract/10.1103/PhysRevB.100.085202",
+            "tags": ["transport", "methods", "discovery"]
+          }
+        ]
+      },
+      {
+        "title": "Materials Discovery & Computational Methods",
+        "pitch": "Validating DFT methods, predicting new structures, and building automated pipelines for magnetic screening at scale.",
+        "tags": ["methods", "discovery"],
+        "projects": [
+          {
+            "title": "Group IV binary carbides with double layer honeycomb structure",
+            "journal": "J. Appl. Phys.",
+            "citation": "138, 084303 (2025)",
+            "url": "https://pubs.aip.org/aip/jap/article/138/8/084303/3360235",
+            "tags": ["discovery"]
+          },
+          {
+            "title": "Ground state of TiO₂ from all-electron DFT",
+            "journal": "Eur. Phys. J. B",
+            "citation": "90, 210 (2017)",
+            "url": "https://link.springer.com/article/10.1140/epjb/e2017-80476-9",
+            "tags": ["methods"]
+          },
+          {
+            "title": "VASP magnetism benchmarking",
+            "tags": ["methods"],
+            "status": "ongoing"
+          },
+          {
+            "title": "Amaranta magnetic data → Materials Cloud",
+            "tags": ["discovery", "methods"],
+            "status": "ongoing"
+          },
+          {
+            "title": "Amaranta → VAMPIRE high-throughput pipeline",
+            "tags": ["methods", "discovery"],
+            "status": "ongoing"
+          }
+        ]
+      }
+    ]
+  },
+
+  "publications": {
+    "intro": "In chronological order.",
+    "items": [
+      {
+        "number": 9,
+        "title": "Group IV binary carbides with double layer honeycomb lattice structure",
+        "authors": "Mehrdad Faraji, **Aditya Putatunda**, Alexander Schleusener, Sergey Artyukhin, Roman Krahne",
+        "journal": "Journal of Applied Physics",
+        "citation": "138, 084303 (2025)",
+        "url": "https://pubs.aip.org/aip/jap/article/138/8/084303/3360235"
+      },
+      {
+        "number": 8,
+        "title": "Trimerization domain walls and vortices in multiferroic BaCoSiO₄",
+        "authors": "**Aditya Putatunda** & Sergey Artyukhin",
+        "journal": "Physical Review B",
+        "citation": "111, 184101 (2025)",
+        "url": "https://journals.aps.org/prb/abstract/10.1103/PhysRevB.111.184101",
+        "arxiv": "2407.02692",
+        "arxivUrl": "https://arxiv.org/abs/2407.02692",
+        "arxivYear": "2024"
+      },
+      {
+        "number": 7,
+        "title": "Competing magnetic orders in quantum critical Sr₃Ru₂O₇",
+        "authors": "**Aditya Putatunda**, Guanhua Qin, Wei Ren, David J Singh",
+        "journal": "Physical Review B",
+        "citation": "102, 014442 (2020)",
+        "url": "https://journals.aps.org/prb/abstract/10.1103/PhysRevB.102.014442"
+      },
+      {
+        "number": 6,
+        "title": "Electronic structure as a guide in screening for potential thermoelectrics: Demonstration for half-Heusler compounds",
+        "authors": "Zhenzhen Feng, Yuhao Fu, **Aditya Putatunda**, Yongsheng Zhang, David J. Singh",
+        "journal": "Physical Review B",
+        "citation": "100, 085202 (2019)",
+        "url": "https://journals.aps.org/prb/abstract/10.1103/PhysRevB.100.085202"
+      },
+      {
+        "number": 5,
+        "title": "Lorenz number in relation to estimates based on the Seebeck coefficient",
+        "authors": "**Aditya Putatunda**, David J. Singh",
+        "journal": "Materials Today Physics",
+        "citation": "8, 49–55 (2019)",
+        "url": "https://www.sciencedirect.com/science/article/pii/S2542529318301561"
+      },
+      {
+        "number": 4,
+        "title": "Thermoelectric properties of layered NaSbSe₂",
+        "authors": "**Aditya Putatunda**, Guangzong Xing, Jifeng Sun, Yuwei Li and David J Singh",
+        "journal": "Journal of Physics: Condensed Matter",
+        "citation": "30, 225501 (2018)",
+        "url": "https://iopscience.iop.org/article/10.1088/1361-648X/aabf5b"
+      },
+      {
+        "number": 3,
+        "title": "On the ground state of TiO₂ as predicted by all electron density functional calculations in relation to experiment",
+        "authors": "**Aditya Putatunda** & David J. Singh",
+        "journal": "The European Physical Journal B",
+        "citation": "90, 210 (2017)",
+        "url": "https://link.springer.com/article/10.1140/epjb/e2017-80476-9"
+      },
+      {
+        "number": 2,
+        "title": "Properties of the antiferromagnetic selenite MnSeO₃ and its non-magnetic analogue ZnSeO₃ from first principles calculations",
+        "authors": "C J Honer, M J Prosniewski, **Aditya Putatunda** and David J. Singh",
+        "journal": "Journal of Physics: Condensed Matter",
+        "citation": "29, 405501 (2017)",
+        "url": "https://iopscience.iop.org/article/10.1088/1361-648X/aa7f89"
+      },
+      {
+        "number": 1,
+        "title": "Origin of lowered magnetic moments in epitaxially strained thin films of multiferroic Bi₂FeCrO₆",
+        "authors": "Paresh C. Rout, **Aditya Putatunda** and Varadharajan Srinivasan",
+        "journal": "Physical Review B",
+        "citation": "93, 104415 (2016)",
+        "url": "https://journals.aps.org/prb/abstract/10.1103/PhysRevB.93.104415",
+        "arxiv": "1509.01563",
+        "arxivUrl": "https://arxiv.org/abs/1509.01563",
+        "arxivYear": "2015"
+      }
+    ]
+  },
+
+  "about": {
+    "prose": [
+      "I'm a condensed matter physicist working at the intersection of first-principles computation and materials discovery. My research focuses on understanding how magnetic and electric orders interact in complex materials — and using that understanding to find new ones with useful properties.",
+      "Most of my work involves density functional theory (DFT) calculations, often at large scale. I develop and validate computational methods, predict properties of hypothetical materials, and build pipelines for high-throughput screening — particularly for magnetic and thermoelectric materials.",
+      "I'm currently a Senior Research Fellow at CNR-SPIN and the University of Milan-Bicocca in Milan, where I work on multiferroics, magnetoelectric coupling, and automated workflows for magnetic materials databases. Before this, I was a postdoctoral researcher in the Quantum Materials Theory group at the Italian Institute of Technology in Genova, where I built symmetry-adapted Landau models for multiferroic phase transitions and developed automated post-processing pipelines for DFT codes.",
+      "I did my PhD in Physics at the University of Missouri Columbia, investigating charge transport and magnetism from first principles — work that resulted in 6 peer-reviewed publications (5 as first author) and presentations at 5 international conferences. Prior to that, I completed an Integrated M.Sc. in Physics at the National Institute of Science Education and Research (NISER) in Bhubaneswar, India."
+    ],
+    "currentPosition": {
+      "title": "Senior Research Fellow",
+      "institution": "CNR-SPIN & University of Milan-Bicocca",
+      "location": "Milan, Italy",
+      "dates": "Jun 2025–present"
+    },
+    "previousPositions": [
+      {
+        "title": "Postdoctoral Researcher",
+        "institution": "Italian Institute of Technology, Genova",
+        "dates": "Dec 2021–May 2025"
+      }
+    ],
+    "education": [
+      {
+        "degree": "PhD, Physics",
+        "institution": "University of Missouri Columbia",
+        "dates": "2016–2021"
+      },
+      {
+        "degree": "Integrated M.Sc., Physics",
+        "institution": "NISER, Bhubaneswar",
+        "dates": "2011–2016"
+      }
+    ],
+    "awards": [
+      { "name": "O.M. Stewart Scholarship", "year": "2019" },
+      { "name": "DST-INSPIRE Fellowship", "year": "2011–2016" }
+    ],
+    "interests": "Multiferroics · Magnetism · Thermoelectrics · DFT methods · High-throughput screening · Materials informatics"
+  },
+
+  "talks": {
+    "intro": "Conference contributions, invited talks, and posters.",
+    "items": [
+      { "date": "Jul 2025", "title": "Magnetoelectric control in type-I multiferroics via domain walls", "venue": "FisMat 2025, Venice", "type": "talk" },
+      { "date": "Mar 2025", "title": "Magnetoelectric control in type-I multiferroics via domain walls", "venue": "DPG Spring Meeting, Regensburg", "type": "talk" },
+      { "date": "Jan 2024", "title": "Workshop on Twistronics and Moiré Materials", "venue": "ICTP, Trieste" },
+      { "date": "Mar 2023", "title": "DPG Spring Meeting", "venue": "Berlin", "type": "talk" },
+      { "date": "Aug 2022", "title": "Twisted CrI₃ bilayer", "venue": "Psi-K Conference, Lausanne", "type": "poster" },
+      { "date": "Jul 2022", "title": "SCES 2022", "venue": "Amsterdam" },
+      { "date": "Mar 2020", "title": "APS March Meeting", "venue": "Denver — canceled (COVID-19)", "type": "talk" },
+      { "date": "Mar 2019", "title": "Lorenz number estimates from the Seebeck coefficient", "venue": "APS March Meeting, Boston", "type": "talk" },
+      { "date": "Mar 2018", "title": "Thermoelectric properties of NaSbSe₂", "venue": "APS March Meeting, Los Angeles", "type": "talk" },
+      { "date": "2014", "title": "MASTANI Summer School", "venue": "Pune, India" }
+    ]
+  },
+
+  "contact": {
+    "intro": "Feel free to reach out about research, collaborations, or questions.",
+    "emails": [
+      { "label": "University email", "address": "aditya.putatunda[at]unimib.it" },
+      { "label": "CNR email", "address": "adityaputatunda[at]cnr.it" }
+    ],
+    "note": "I'm based at CNR-SPIN and the University of Milan-Bicocca in Milan, Italy."
+  }
+}

@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aditya Putatunda</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #ffffff; --bg-warm: #fdfcfb; --text: #1a1a1a; --text-mid: #444;
+    --text-muted: #6a6a6a; --text-light: #999; --accent: #1a5276;
+    --accent-light: #e8f0f6; --border: #e0ddd8; --border-light: #edeae5;
+    --serif: 'Source Serif 4', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+    --tag-magnetism-bg: #eef0f7; --tag-magnetism: #3b4a8a;
+    --tag-multiferroics-bg: #f5f0fa; --tag-multiferroics: #6b4c8a;
+    --tag-transport-bg: #fdf1ee; --tag-transport: #9e4433;
+    --tag-methods-bg: #eef6f4; --tag-methods: #2a6b5e;
+    --tag-discovery-bg: #fef8ec; --tag-discovery: #8a6d2a;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: var(--sans); background: var(--bg); color: var(--text); -webkit-font-smoothing: antialiased; }
+
+  /* Nav */
+  nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.92); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+  .nav-inner { max-width: 1400px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 56px; padding: 0 3rem; }
+  .site-name { font-family: var(--serif); font-weight: 600; font-size: 1.1rem; color: var(--text); text-decoration: none; cursor: pointer; flex-shrink: 0; }
+  .nav-links { display: flex; gap: 1.8rem; list-style: none; }
+  .nav-links a { font-size: 0.82rem; font-weight: 500; color: var(--text-muted); text-decoration: none; letter-spacing: 0.01em; transition: color 0.2s; cursor: pointer; position: relative; }
+  .nav-links a:hover { color: var(--accent); }
+  .nav-links a.active { color: var(--accent); }
+  .nav-links a.active::after { content: ''; position: absolute; bottom: -18px; left: 0; right: 0; height: 2px; background: var(--accent); }
+  .mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 0.5rem; color: var(--text); }
+  .mobile-toggle svg { width: 20px; height: 20px; }
+
+  /* Page sections */
+  .page-section { display: none; animation: sectionFade 0.35s ease; }
+  .page-section.visible { display: block; }
+  @keyframes sectionFade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+  /* Home */
+  .home-hero { max-width: 1400px; margin: 0 auto; padding: 5rem 3rem 4rem; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+  .hero-text h1 { font-family: var(--serif); font-size: 2.8rem; font-weight: 300; letter-spacing: -0.03em; line-height: 1.15; margin-bottom: 0.6rem; }
+  .hero-text h1 span { display: block; font-weight: 600; }
+  .hero-role { font-size: 0.88rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 1.75rem; }
+  .hero-role strong { color: var(--text-mid); font-weight: 500; }
+  .hero-summary { font-family: var(--serif); font-size: 1.05rem; color: var(--text-mid); line-height: 1.75; margin-bottom: 2rem; max-width: 520px; }
+  .hero-links { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .hero-links a { font-size: 0.78rem; font-weight: 600; color: var(--accent); text-decoration: none; padding: 0.45rem 1rem; border: 1.5px solid var(--accent); border-radius: 3px; transition: all 0.2s; letter-spacing: 0.01em; }
+  .hero-links a:hover { background: var(--accent); color: #fff; }
+  .hero-photo-placeholder { width: 100%; aspect-ratio: 4/3; background: var(--border-light); border: 1px dashed var(--border); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 0.78rem; color: var(--text-light); }
+  .news-strip { max-width: 1400px; margin: 0 auto; padding: 0 3rem 4rem; }
+  .news-strip-label { font-size: 0.72rem; font-weight: 600; color: var(--text-light); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border-light); }
+  .news-items { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.5rem; }
+  .news-card { padding: 1.25rem 0; border-top: 2px solid var(--border); }
+  .news-date { font-size: 0.72rem; color: var(--text-light); margin-bottom: 0.4rem; letter-spacing: 0.02em; }
+  .news-title { font-family: var(--serif); font-size: 0.92rem; font-weight: 600; line-height: 1.4; margin-bottom: 0.3rem; }
+  .news-blurb { font-size: 0.82rem; color: var(--text-muted); line-height: 1.55; }
+
+  /* Research */
+  .page-intro { max-width: 1400px; margin: 0 auto; padding: 3.5rem 3rem 2.5rem; }
+  .page-intro h1 { font-family: var(--serif); font-size: 2.2rem; font-weight: 300; letter-spacing: -0.02em; margin-bottom: 0.75rem; }
+  .page-intro p { font-size: 0.92rem; color: var(--text-muted); line-height: 1.7; max-width: 960px; }
+  .sections-overview { max-width: 1400px; margin: 0 auto; padding: 0 3rem 2rem; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2rem; }
+  .section-panel { padding: 1.75rem 0; cursor: pointer; transition: opacity 0.35s ease, border-color 0.35s ease; position: relative; border-top: 2px solid var(--text); }
+  .section-panel:hover { opacity: 0.8; }
+  .section-panel.active { opacity: 1; border-top-color: var(--accent); }
+  .sections-overview.has-active .section-panel:not(.active) { opacity: 0.45; }
+  .sections-overview.has-active .section-panel:not(.active):hover { opacity: 0.65; }
+  .section-panel h2 { font-family: var(--serif); font-size: 1.15rem; font-weight: 600; line-height: 1.35; margin-bottom: 0.65rem; letter-spacing: -0.01em; }
+  .section-pitch { font-size: 0.84rem; color: var(--text-muted); line-height: 1.65; margin-bottom: 1.1rem; }
+  .panel-figure { width: 100%; height: 140px; background: var(--border-light); border: 1px dashed var(--border); border-radius: 3px; display: flex; align-items: center; justify-content: center; font-size: 0.72rem; color: var(--text-light); margin-bottom: 1.1rem; }
+  .panel-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 1rem; }
+  .tag { font-size: 0.65rem; font-weight: 600; padding: 0.15rem 0.5rem; border-radius: 2px; letter-spacing: 0.02em; }
+  .tag-magnetism { background: var(--tag-magnetism-bg); color: var(--tag-magnetism); }
+  .tag-multiferroics { background: var(--tag-multiferroics-bg); color: var(--tag-multiferroics); }
+  .tag-transport { background: var(--tag-transport-bg); color: var(--tag-transport); }
+  .tag-methods { background: var(--tag-methods-bg); color: var(--tag-methods); }
+  .tag-discovery { background: var(--tag-discovery-bg); color: var(--tag-discovery); }
+  .panel-expand-hint { font-size: 0.82rem; font-weight: 600; color: var(--accent); display: inline-flex; align-items: center; gap: 0.35rem; transition: gap 0.2s; }
+  .section-panel:hover .panel-expand-hint { gap: 0.5rem; }
+  .panel-expand-hint .arrow { transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94); font-size: 0.65rem; display: inline-block; }
+  .section-panel.active .panel-expand-hint .arrow { transform: rotate(90deg); }
+  .section-drawer { max-width: 1400px; margin: 0 auto; overflow: hidden; max-height: 0; transition: max-height 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+  .section-drawer.open { max-height: 2000px; }
+  .drawer-inner { padding: 1.5rem 3rem 2rem; background: #fff; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); opacity: 0; transform: translateY(-6px); transition: opacity 0.4s ease 0.1s, transform 0.4s ease 0.1s; }
+  .section-drawer.open .drawer-inner { opacity: 1; transform: translateY(0); }
+  .project-row { display: flex; align-items: baseline; gap: 0.75rem; padding: 0.6rem 0; border-bottom: 1px solid var(--border-light); flex-wrap: wrap; }
+  .project-row:last-of-type { border-bottom: none; }
+  .project-row-title { font-family: var(--serif); font-size: 0.9rem; font-weight: 600; color: var(--text); }
+  .project-row-sep { color: var(--border); font-size: 0.75rem; }
+  .project-row-journal { font-size: 0.78rem; color: var(--text-light); }
+  .project-row-journal a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
+  .project-row-journal a:hover { border-bottom-color: var(--accent); }
+  .project-row-tags { display: flex; gap: 0.3rem; margin-left: auto; flex-shrink: 0; }
+  .project-row-status { font-size: 0.68rem; font-weight: 600; color: #2a6b5e; background: #eaf7f3; padding: 0.15rem 0.5rem; border-radius: 2px; }
+  .drawer-more-link { display: inline-flex; align-items: center; gap: 0.3rem; font-size: 0.82rem; font-weight: 600; color: var(--accent); text-decoration: none; margin-top: 1.25rem; border-bottom: 1px solid transparent; transition: border-color 0.2s; cursor: pointer; }
+  .drawer-more-link:hover { border-bottom-color: var(--accent); }
+
+  /* Publications */
+  .publications-list { max-width: 1400px; margin: 0 auto; padding: 0 3rem 3rem; }
+  .pub-item { padding: 1.5rem 0; border-bottom: 1px solid var(--border-light); }
+  .pub-item:first-child { border-top: 2px solid var(--text); padding-top: 1.75rem; }
+  .pub-item:last-child { border-bottom: none; }
+  .pub-number { font-family: var(--serif); font-size: 0.82rem; font-weight: 600; color: var(--text-light); margin-bottom: 0.4rem; }
+  .pub-title { font-family: var(--serif); font-size: 1.05rem; font-weight: 600; color: var(--text); line-height: 1.4; margin-bottom: 0.4rem; }
+  .pub-authors { font-size: 0.88rem; color: var(--text-muted); margin-bottom: 0.35rem; line-height: 1.5; }
+  .pub-authors strong { color: var(--text); font-weight: 600; }
+  .pub-journal { font-size: 0.88rem; color: var(--text-muted); line-height: 1.5; }
+  .pub-journal a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
+  .pub-journal a:hover { border-bottom-color: var(--accent); }
+  .pub-preprint { font-size: 0.82rem; color: var(--text-light); margin-top: 0.25rem; }
+  .pub-preprint a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
+  .pub-preprint a:hover { border-bottom-color: var(--accent); }
+
+  /* About */
+  .about-content { max-width: 1400px; margin: 0 auto; padding: 0 3rem 4rem; display: grid; grid-template-columns: 2fr 1fr; gap: 4rem; }
+  .about-prose { font-size: 0.92rem; color: var(--text-mid); line-height: 1.8; }
+  .about-prose p { margin-bottom: 1.25rem; }
+  .about-prose p:last-child { margin-bottom: 0; }
+  .about-sidebar-label { font-size: 0.72rem; font-weight: 600; color: var(--text-light); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 0.75rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--border-light); }
+  .about-sidebar-block { margin-bottom: 2rem; }
+  .about-sidebar-item { font-size: 0.85rem; color: var(--text-mid); line-height: 1.7; }
+  .about-sidebar-item strong { font-weight: 600; color: var(--text); display: block; }
+  .about-sidebar-item + .about-sidebar-item { margin-top: 0.75rem; }
+
+  /* Talks */
+  .talks-list { max-width: 1400px; margin: 0 auto; padding: 0 3rem 3rem; }
+  .talk-item { display: grid; grid-template-columns: 120px 1fr; gap: 1.5rem; padding: 1.25rem 0; border-bottom: 1px solid var(--border-light); align-items: baseline; }
+  .talk-item:first-child { border-top: 2px solid var(--text); padding-top: 1.5rem; }
+  .talk-item:last-child { border-bottom: none; }
+  .talk-date { font-size: 0.78rem; color: var(--text-light); font-weight: 500; white-space: nowrap; }
+  .talk-title { font-family: var(--serif); font-size: 0.95rem; font-weight: 600; color: var(--text); line-height: 1.4; margin-bottom: 0.25rem; }
+  .talk-venue { font-size: 0.84rem; color: var(--text-muted); line-height: 1.5; }
+  .talk-type { display: inline-block; font-size: 0.65rem; font-weight: 600; padding: 0.12rem 0.45rem; border-radius: 2px; margin-left: 0.5rem; vertical-align: middle; }
+  .talk-type-talk { background: var(--accent-light); color: var(--accent); }
+  .talk-type-poster { background: var(--tag-multiferroics-bg); color: var(--tag-multiferroics); }
+
+  /* Contact */
+  .contact-content { max-width: 1400px; margin: 0 auto; padding: 0 3rem 4rem; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
+  .contact-block { margin-bottom: 2rem; }
+  .contact-label { font-size: 0.72rem; font-weight: 600; color: var(--text-light); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 0.6rem; }
+  .contact-value { font-family: var(--serif); font-size: 1.05rem; color: var(--text); line-height: 1.6; }
+  .contact-value a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
+  .contact-value a:hover { border-bottom-color: var(--accent); }
+  .contact-note { font-size: 0.85rem; color: var(--text-muted); line-height: 1.7; margin-top: 1.5rem; }
+
+  /* Footer */
+  footer { max-width: 1400px; margin: 3rem auto 0; padding: 1.5rem 3rem 3rem; border-top: 1px solid var(--border); text-align: center; font-size: 0.78rem; color: var(--text-light); }
+
+  /* Animations */
+  .section-panel { opacity: 0; transform: translateY(12px); animation: fadeUp 0.4s ease forwards; }
+  .section-panel:nth-child(1) { animation-delay: 0.1s; }
+  .section-panel:nth-child(2) { animation-delay: 0.2s; }
+  .section-panel:nth-child(3) { animation-delay: 0.3s; }
+  .pub-item, .talk-item { opacity: 0; transform: translateY(10px); animation: fadeUp 0.35s ease forwards; }
+  @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .nav-links { display: none; }
+    .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 56px; left: 0; right: 0; background: rgba(255,255,255,0.97); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 1rem 1.5rem; gap: 0.8rem; }
+    .nav-links.open a::after { display: none; }
+    .mobile-toggle { display: block; }
+    .home-hero { grid-template-columns: 1fr; gap: 2rem; padding: 3rem 1.5rem 2rem; }
+    .hero-text h1 { font-size: 2.1rem; }
+    .news-items { grid-template-columns: 1fr; }
+    .sections-overview { grid-template-columns: 1fr; gap: 0; }
+    .section-panel { border-top-width: 1px; }
+    .about-content { grid-template-columns: 1fr; gap: 2rem; }
+    .contact-content { grid-template-columns: 1fr; gap: 2rem; }
+    .talk-item { grid-template-columns: 1fr; gap: 0.3rem; }
+    .page-intro h1 { font-size: 1.8rem; }
+    .nav-inner, .page-intro, .sections-overview, .drawer-inner, .publications-list, .talks-list, .about-content, .contact-content, .news-strip, .home-hero, footer { padding-left: 1.5rem; padding-right: 1.5rem; }
+    .project-row { flex-direction: column; gap: 0.25rem; }
+    .project-row-tags { margin-left: 0; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="site-name" onclick="showTab('home')"></a>
+    <button class="mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+      <svg viewBox="0 0 20 20"><path d="M3 5h14M3 10h14M3 15h14" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
+    </button>
+    <ul class="nav-links">
+      <li><a onclick="showTab('home')" data-tab="home" class="active">Home</a></li>
+      <li><a onclick="showTab('research')" data-tab="research">Research</a></li>
+      <li><a onclick="showTab('publications')" data-tab="publications">Publications</a></li>
+      <li><a onclick="showTab('about')" data-tab="about">About</a></li>
+      <li><a onclick="showTab('misc')" data-tab="misc">Miscellaneous</a></li>
+      <li><a onclick="showTab('contact')" data-tab="contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="page-section visible" id="tab-home"></div>
+<div class="page-section" id="tab-research"></div>
+<div class="page-section" id="tab-publications"></div>
+<div class="page-section" id="tab-about"></div>
+<div class="page-section" id="tab-misc"></div>
+<div class="page-section" id="tab-contact"></div>
+<footer></footer>
+
+<script>
+const $ = s => document.querySelector(s);
+const $$ = s => document.querySelectorAll(s);
+function bold(s) { return s.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>'); }
+
+const tagMap = {
+  magnetism: 'tag-magnetism', multiferroics: 'tag-multiferroics',
+  transport: 'tag-transport', methods: 'tag-methods',
+  discovery: 'tag-discovery', 'materials discovery': 'tag-discovery'
+};
+function renderTag(t) {
+  const cls = tagMap[t] || 'tag-methods';
+  const label = t === 'discovery' ? 'materials discovery' : t;
+  return `<span class="tag ${cls}">${label}</span>`;
+}
+
+fetch('content.json').then(r => r.json()).then(render)
+  .catch(e => console.error('Failed to load content.json:', e));
+
+function render(D) {
+  $('.site-name').textContent = D.site.name;
+  $('footer').textContent = D.site.footer;
+  document.title = D.site.name;
+
+  // HOME
+  $('#tab-home').innerHTML = `
+    <div class="home-hero">
+      <div class="hero-text">
+        <h1>${D.home.greeting} <span>${D.home.name}</span></h1>
+        <p class="hero-role">${D.home.role.join('<br>')}</p>
+        <p class="hero-summary">${D.home.summary}</p>
+        <div class="hero-links">
+          ${D.profiles.map(p => `<a href="${p.url}" target="_blank">${p.label}</a>`).join('')}
+        </div>
+      </div>
+      <div class="hero-aside">
+        <div class="hero-photo-placeholder">[ professional photo ]</div>
+      </div>
+    </div>
+    <div class="news-strip">
+      <div class="news-strip-label">Latest</div>
+      <div class="news-items">
+        ${D.home.news.map(n => `
+          <div class="news-card">
+            <div class="news-date">${n.date}</div>
+            <div class="news-title">${n.title}</div>
+            <div class="news-blurb">${n.blurb}</div>
+          </div>`).join('')}
+      </div>
+    </div>`;
+
+  // RESEARCH
+  let panels = '', drawers = '';
+  D.research.sections.forEach((sec, i) => {
+    panels += `
+      <div class="section-panel" onclick="toggleSection(${i})" id="panel-${i}">
+        <h2>${sec.title}</h2>
+        <p class="section-pitch">${sec.pitch}</p>
+        <div class="panel-figure">[ hero figure ]</div>
+        <div class="panel-tags">${sec.tags.map(renderTag).join('')}</div>
+        <div class="panel-expand-hint"><span class="arrow">▸</span> Learn more</div>
+      </div>`;
+
+    const rows = sec.projects.map(p => {
+      const ptags = p.tags.map(renderTag).join('');
+      const status = p.status ? `<span class="project-row-status">${p.status}</span>` : '';
+      if (p.journal) {
+        return `<div class="project-row">
+          <span class="project-row-title">${p.title}</span>
+          <span class="project-row-sep">·</span>
+          <span class="project-row-journal"><a href="${p.url}" target="_blank">${p.journal}</a> ${p.citation}</span>
+          <span class="project-row-tags">${ptags}${status}</span>
+        </div>`;
+      }
+      return `<div class="project-row">
+          <span class="project-row-title">${p.title}</span>
+          <span class="project-row-tags">${ptags}${status}</span>
+        </div>`;
+    }).join('');
+
+    drawers += `
+      <div class="section-drawer" id="drawer-${i}">
+        <div class="drawer-inner">
+          ${rows}
+          <a class="drawer-more-link" onclick="showTab('publications')">See full descriptions in Publications →</a>
+        </div>
+      </div>`;
+  });
+
+  $('#tab-research').innerHTML = `
+    <div class="page-intro"><h1>Research</h1><p>${D.research.intro}</p></div>
+    <div class="sections-overview">${panels}</div>${drawers}`;
+
+  // PUBLICATIONS
+  $('#tab-publications').innerHTML = `
+    <div class="page-intro"><h1>Publications</h1><p>${D.publications.intro}</p></div>
+    <div class="publications-list">
+      ${D.publications.items.map((p, i) => `
+        <div class="pub-item" style="animation-delay:${0.05 + i * 0.05}s">
+          <div class="pub-number">${p.number}.</div>
+          <div class="pub-title">${p.title}</div>
+          <div class="pub-authors">${bold(p.authors)}</div>
+          <div class="pub-journal"><a href="${p.url}" target="_blank">${p.journal}</a> ${p.citation}</div>
+          ${p.arxiv ? `<div class="pub-preprint">Arxiv Preprint: <a href="${p.arxivUrl}" target="_blank">${p.arxiv}</a> (${p.arxivYear})</div>` : ''}
+        </div>`).join('')}
+    </div>`;
+
+  // ABOUT
+  $('#tab-about').innerHTML = `
+    <div class="page-intro"><h1>About</h1></div>
+    <div class="about-content">
+      <div class="about-prose">${D.about.prose.map(p => `<p>${p}</p>`).join('')}</div>
+      <div class="about-sidebar">
+        <div class="about-sidebar-block">
+          <div class="about-sidebar-label">Current position</div>
+          <div class="about-sidebar-item">
+            <strong>${D.about.currentPosition.title}</strong>
+            ${D.about.currentPosition.institution}<br>
+            ${D.about.currentPosition.location} · ${D.about.currentPosition.dates}
+          </div>
+        </div>
+        <div class="about-sidebar-block">
+          <div class="about-sidebar-label">Previous positions</div>
+          ${D.about.previousPositions.map(p => `<div class="about-sidebar-item"><strong>${p.title}</strong>${p.institution}<br>${p.dates}</div>`).join('')}
+        </div>
+        <div class="about-sidebar-block">
+          <div class="about-sidebar-label">Education</div>
+          ${D.about.education.map(e => `<div class="about-sidebar-item"><strong>${e.degree}</strong>${e.institution}<br>${e.dates}</div>`).join('')}
+        </div>
+        <div class="about-sidebar-block">
+          <div class="about-sidebar-label">Awards</div>
+          ${D.about.awards.map(a => `<div class="about-sidebar-item"><strong>${a.name}</strong> ${a.year}</div>`).join('')}
+        </div>
+        <div class="about-sidebar-block">
+          <div class="about-sidebar-label">Interests</div>
+          <div class="about-sidebar-item">${D.about.interests}</div>
+        </div>
+      </div>
+    </div>`;
+
+  // TALKS
+  $('#tab-misc').innerHTML = `
+    <div class="page-intro"><h1>Talks &amp; Presentations</h1><p>${D.talks.intro}</p></div>
+    <div class="talks-list">
+      ${D.talks.items.map((t, i) => {
+        let badge = '';
+        if (t.type === 'talk') badge = ' <span class="talk-type talk-type-talk">talk</span>';
+        if (t.type === 'poster') badge = ' <span class="talk-type talk-type-poster">poster</span>';
+        return `<div class="talk-item" style="animation-delay:${0.05 + i * 0.02}s">
+          <div class="talk-date">${t.date}</div>
+          <div><div class="talk-title">${t.title}${badge}</div><div class="talk-venue">${t.venue}</div></div>
+        </div>`;
+      }).join('')}
+    </div>`;
+
+  // CONTACT
+  $('#tab-contact').innerHTML = `
+    <div class="page-intro"><h1>Contact</h1><p>${D.contact.intro}</p></div>
+    <div class="contact-content">
+      <div>
+        ${D.contact.emails.map(e => `<div class="contact-block"><div class="contact-label">${e.label}</div><div class="contact-value">${e.address}</div></div>`).join('')}
+        <p class="contact-note">${D.contact.note}</p>
+      </div>
+      <div>
+        <div class="contact-block">
+          <div class="contact-label">Profiles</div>
+          <div class="contact-value">${D.profiles.map(p => `<a href="${p.url}" target="_blank">${p.label}</a>`).join('<br>')}</div>
+        </div>
+      </div>
+    </div>`;
+}
+
+// Tab navigation
+function showTab(tabId) {
+  $$('.page-section').forEach(s => s.classList.remove('visible'));
+  const target = document.getElementById('tab-' + tabId);
+  if (target) target.classList.add('visible');
+  $$('.nav-links a').forEach(a => a.classList.toggle('active', a.dataset.tab === tabId));
+  $('.nav-links').classList.remove('open');
+  if (tabId !== 'research') {
+    activeDrawer = -1;
+    $$('.section-drawer').forEach(d => d.classList.remove('open'));
+    $$('.section-panel').forEach(p => p.classList.remove('active'));
+    const ov = $('.sections-overview');
+    if (ov) ov.classList.remove('has-active');
+  }
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  target.querySelectorAll('.pub-item, .section-panel, .talk-item').forEach(el => {
+    el.style.animation = 'none'; el.offsetHeight; el.style.animation = '';
+  });
+}
+
+// Research drawers
+let activeDrawer = -1;
+function toggleSection(index) {
+  const panels = $$('.section-panel');
+  const drawers = $$('.section-drawer');
+  const overview = $('.sections-overview');
+  if (activeDrawer === index) {
+    drawers[index].classList.remove('open');
+    panels[index].classList.remove('active');
+    overview.classList.remove('has-active');
+    activeDrawer = -1;
+    return;
+  }
+  if (activeDrawer >= 0) {
+    drawers[activeDrawer].classList.remove('open');
+    panels[activeDrawer].classList.remove('active');
+  }
+  drawers[index].classList.add('open');
+  panels[index].classList.add('active');
+  overview.classList.add('has-active');
+  activeDrawer = index;
+}
+</script>
+</body>
+</html>
