@@ -153,7 +153,7 @@
 
   /* Visitor counter */
   .visitor-counter { margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid var(--border-light); }
-  .visitor-counter .about-sidebar-label { margin-bottom: 0.5rem; }
+  .visitor-counter .contact-label { margin-bottom: 0.5rem; }
   .visitor-count-text { font-family: var(--serif); font-size: 0.88rem; color: var(--text-mid); line-height: 1.6; }
   .visitor-count-text .count-number { font-weight: 600; color: var(--accent); font-variant-numeric: tabular-nums; }
   .visitor-count-text.loading { color: var(--text-light); font-size: 0.82rem; font-family: var(--sans); }
@@ -360,10 +360,7 @@ function render(D) {
           <div class="about-sidebar-label">Interests</div>
           <div class="about-sidebar-item">${D.about.interests}</div>
         </div>
-        <div class="visitor-counter">
-          <div class="about-sidebar-label">👋</div>
-          <div class="visitor-count-text loading" id="visitor-count">counting...</div>
-        </div>
+
       </div>
     </div>`;
 
@@ -403,6 +400,10 @@ function render(D) {
         <div class="contact-block">
           <div class="contact-label">Profiles</div>
           <div class="contact-value">${D.profiles.map(p => `<a href="${p.url}" target="_blank">${p.label}</a>`).join('<br>')}</div>
+        </div>
+        <div class="visitor-counter">
+          <div class="contact-label">👋</div>
+          <div class="visitor-count-text loading" id="visitor-count">counting...</div>
         </div>
       </div>
     </div>`;
@@ -453,7 +454,7 @@ function toggleSection(index) {
 
 // ── Visitor counter (GoatCounter) ──
 // Replace YOURSITE with your GoatCounter site code after signup at https://www.goatcounter.com
-const GC_SITE = 'adityaputatunda'; // e.g. 'aditya-putatunda'
+const GC_SITE = 'YOURSITE'; // e.g. 'aditya-putatunda'
 
 function ordinal(n) {
   const s = ['th','st','nd','rd'];
@@ -482,7 +483,7 @@ fetchVisitorCount();
 </script>
 
 <!-- GoatCounter tracking — replace YOURSITE -->
-<script data-goatcounter="https://adityaputatunda.goatcounter.com/count"
+<script data-goatcounter="https://YOURSITE.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
