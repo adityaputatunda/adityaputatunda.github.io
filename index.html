@@ -48,7 +48,7 @@
   .hero-links { display: flex; gap: 1rem; flex-wrap: wrap; }
   .hero-links a { font-size: 0.78rem; font-weight: 600; color: var(--accent); text-decoration: none; padding: 0.45rem 1rem; border: 1.5px solid var(--accent); border-radius: 3px; transition: all 0.2s; letter-spacing: 0.01em; }
   .hero-links a:hover { background: var(--accent); color: #fff; }
-  .hero-photo-placeholder { width: 100%; aspect-ratio: 4/3; background: var(--border-light); border: 1px dashed var(--border); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 0.78rem; color: var(--text-light); }
+  .hero-photo { width: 100%; max-width: 420px; border-radius: 4px; object-fit: cover; }
   .news-strip { max-width: 1400px; margin: 0 auto; padding: 0 3rem 4rem; }
   .news-strip-label { font-size: 0.72rem; font-weight: 600; color: var(--text-light); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border-light); }
   .news-items { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.5rem; }
@@ -245,7 +245,7 @@ function render(D) {
         </div>
       </div>
       <div class="hero-aside">
-        <div class="hero-photo-placeholder">[ professional photo ]</div>
+        <img class="hero-photo" src="images/headshot_white.jpg" alt="Aditya Putatunda">
       </div>
     </div>
     <div class="news-strip">
