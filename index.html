@@ -151,6 +151,13 @@
   .contact-value a:hover { border-bottom-color: var(--accent); }
   .contact-note { font-size: 0.85rem; color: var(--text-muted); line-height: 1.7; margin-top: 1.5rem; }
 
+  /* Visitor counter */
+  .visitor-counter { margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid var(--border-light); }
+  .visitor-counter .about-sidebar-label { margin-bottom: 0.5rem; }
+  .visitor-count-text { font-family: var(--serif); font-size: 0.88rem; color: var(--text-mid); line-height: 1.6; }
+  .visitor-count-text .count-number { font-weight: 600; color: var(--accent); font-variant-numeric: tabular-nums; }
+  .visitor-count-text.loading { color: var(--text-light); font-size: 0.82rem; font-family: var(--sans); }
+
   /* Footer */
   footer { max-width: 1400px; margin: 3rem auto 0; padding: 1.5rem 3rem 3rem; border-top: 1px solid var(--border); text-align: center; font-size: 0.78rem; color: var(--text-light); }
 
@@ -353,6 +360,10 @@ function render(D) {
           <div class="about-sidebar-label">Interests</div>
           <div class="about-sidebar-item">${D.about.interests}</div>
         </div>
+        <div class="visitor-counter">
+          <div class="about-sidebar-label">👋</div>
+          <div class="visitor-count-text loading" id="visitor-count">counting...</div>
+        </div>
       </div>
     </div>`;
 
@@ -439,6 +450,39 @@ function toggleSection(index) {
   overview.classList.add('has-active');
   activeDrawer = index;
 }
+
+// ── Visitor counter (GoatCounter) ──
+// Replace YOURSITE with your GoatCounter site code after signup at https://www.goatcounter.com
+const GC_SITE = 'adityaputatunda'; // e.g. 'aditya-putatunda'
+
+function ordinal(n) {
+  const s = ['th','st','nd','rd'];
+  const v = n % 100;
+  return n.toLocaleString() + (s[(v - 20) % 10] || s[v] || s[0]);
+}
+
+function fetchVisitorCount() {
+  const el = document.getElementById('visitor-count');
+  if (!el) return;
+  fetch(`https://${GC_SITE}.goatcounter.com/counter/${encodeURIComponent('/')}.json`)
+    .then(r => r.json())
+    .then(data => {
+      const count = parseInt(data.count_unique || data.count, 10);
+      if (isNaN(count)) throw new Error('bad count');
+      el.textContent = `You're the ${ordinal(count)} visitor. Thanks for stopping by.`;
+      el.classList.remove('loading');
+    })
+    .catch(() => {
+      el.textContent = 'Counter not yet configured.';
+    });
+}
+
+// Fetch on load + when About tab is shown
+fetchVisitorCount();
 </script>
+
+<!-- GoatCounter tracking — replace YOURSITE -->
+<script data-goatcounter="https://adityaputatunda.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
