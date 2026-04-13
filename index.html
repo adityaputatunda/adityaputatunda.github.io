@@ -407,6 +407,8 @@ function render(D) {
         </div>
       </div>
     </div>`;
+
+  fetchVisitorCount();
 }
 
 // Tab navigation
@@ -453,8 +455,7 @@ function toggleSection(index) {
 }
 
 // ── Visitor counter (GoatCounter) ──
-// Replace YOURSITE with your GoatCounter site code after signup at https://www.goatcounter.com
-const GC_SITE = 'adityaputatunda'; // e.g. 'aditya-putatunda'
+const GC_SITE = 'adityaputatunda';
 
 function ordinal(n) {
   const s = ['th','st','nd','rd'];
@@ -478,12 +479,11 @@ function fetchVisitorCount() {
     });
 }
 
-// Fetch on load + when About tab is shown
-fetchVisitorCount();
+// Called at end of render() after DOM is ready
 </script>
 
-<!-- GoatCounter tracking — replace YOURSITE -->
-<script data-goatcounter="https://YOURSITE.goatcounter.com/count"
+<!-- GoatCounter tracking -->
+<script data-goatcounter="https://adityaputatunda.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
