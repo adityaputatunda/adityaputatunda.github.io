@@ -46,6 +46,7 @@
       {
         "title": "Multiferroics & Magnetism",
         "pitch": "How magnetic order emerges, competes, and can be tuned in materials where magnetism and electrical polarization coexist.",
+        "image": "images/dw_structure_vortex.svg",
         "tags": ["magnetism", "multiferroics", "transport"],
         "projects": [
           {
@@ -81,6 +82,7 @@
       {
         "title": "Electronic Transport & Thermoelectrics",
         "pitch": "Developing and testing computational tools to evaluate how materials convert waste heat into electricity.",
+        "image": "images/transport_figure.png",
         "tags": ["transport", "methods", "discovery"],
         "projects": [
           {
