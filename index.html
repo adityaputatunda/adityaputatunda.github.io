@@ -101,18 +101,19 @@
   .drawer-more-link:hover { border-bottom-color: var(--accent); }
 
   /* Publications */
-  .publications-list { max-width: 1400px; margin: 0 auto; padding: 0 3rem 3rem; }
-  .pub-item { padding: 1.5rem 0; border-bottom: 1px solid var(--border-light); }
-  .pub-item:first-child { border-top: 2px solid var(--text); padding-top: 1.75rem; }
+  .publications-list { max-width: 1400px; margin: 0 auto; padding: 0 3rem 2rem; }
+  .pub-item { display: grid; grid-template-columns: 2.2rem 1fr; column-gap: 0.5rem; padding: 0.9rem 0; border-bottom: 1px solid var(--border-light); }
+  .pub-item:first-child { border-top: 2px solid var(--text); padding-top: 1.1rem; }
   .pub-item:last-child { border-bottom: none; }
-  .pub-number { font-family: var(--serif); font-size: 0.82rem; font-weight: 600; color: var(--text-light); margin-bottom: 0.4rem; }
-  .pub-title { font-family: var(--serif); font-size: 1.05rem; font-weight: 600; color: var(--text); line-height: 1.4; margin-bottom: 0.4rem; }
-  .pub-authors { font-size: 0.88rem; color: var(--text-muted); margin-bottom: 0.35rem; line-height: 1.5; }
+  .pub-number { font-family: var(--serif); font-size: 1.05rem; font-weight: 600; color: var(--text-light); line-height: 1.4; }
+  .pub-body { min-width: 0; }
+  .pub-title { font-family: var(--serif); font-size: 1.05rem; font-weight: 600; color: var(--text); line-height: 1.4; margin-bottom: 0.2rem; }
+  .pub-authors { font-size: 0.88rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 0.1rem; }
   .pub-authors strong { color: var(--text); font-weight: 600; }
   .pub-journal { font-size: 0.88rem; color: var(--text-muted); line-height: 1.5; }
   .pub-journal a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
   .pub-journal a:hover { border-bottom-color: var(--accent); }
-  .pub-preprint { font-size: 0.82rem; color: var(--text-light); margin-top: 0.25rem; }
+  .pub-preprint { font-size: 0.8rem; color: var(--text-light); margin-top: 0.15rem; }
   .pub-preprint a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
   .pub-preprint a:hover { border-bottom-color: var(--accent); }
 
@@ -128,17 +129,17 @@
   .about-sidebar-item + .about-sidebar-item { margin-top: 0.75rem; }
 
   /* Talks */
-  .talks-list { max-width: 1400px; margin: 0 auto; padding: 0 3rem 3rem; }
-  .talk-item { display: grid; grid-template-columns: 120px 1fr; gap: 1.5rem; padding: 1.25rem 0; border-bottom: 1px solid var(--border-light); align-items: baseline; }
-  .talk-item:first-child { border-top: 2px solid var(--text); padding-top: 1.5rem; }
+  .talks-list { max-width: 1400px; margin: 0 auto; padding: 0 3rem 2rem; }
+  .talk-item { display: grid; grid-template-columns: 100px 1fr; gap: 1.25rem; padding: 0.7rem 0; border-bottom: 1px solid var(--border-light); align-items: baseline; }
+  .talk-item:first-child { border-top: 2px solid var(--text); padding-top: 0.9rem; }
   .talk-item:last-child { border-bottom: none; }
-  .talk-date { font-size: 0.78rem; color: var(--text-light); font-weight: 500; white-space: nowrap; }
-  .talk-title { font-family: var(--serif); font-size: 0.95rem; font-weight: 600; color: var(--text); line-height: 1.4; margin-bottom: 0.25rem; }
-  .talk-venue { font-size: 0.84rem; color: var(--text-muted); line-height: 1.5; }
-  .talk-venues { margin-top: 0.3rem; }
-  .talk-venue-line { font-size: 0.84rem; color: var(--text-muted); line-height: 1.7; }
+  .talk-date { font-size: 0.76rem; color: var(--text-light); font-weight: 500; white-space: nowrap; }
+  .talk-title { font-family: var(--serif); font-size: 0.92rem; font-weight: 600; color: var(--text); line-height: 1.35; margin-bottom: 0.15rem; }
+  .talk-venue { font-size: 0.82rem; color: var(--text-muted); line-height: 1.45; }
+  .talk-venues { margin-top: 0.2rem; }
+  .talk-venue-line { font-size: 0.82rem; color: var(--text-muted); line-height: 1.55; }
   .talk-venue-date { color: var(--text-light); }
-  .talk-type { display: inline-block; font-size: 0.65rem; font-weight: 600; padding: 0.12rem 0.45rem; border-radius: 2px; margin-left: 0.5rem; vertical-align: middle; }
+  .talk-type { display: inline-block; font-size: 0.62rem; font-weight: 600; padding: 0.1rem 0.4rem; border-radius: 2px; margin-left: 0.4rem; vertical-align: middle; }
   .talk-type-talk { background: var(--accent-light); color: var(--accent); }
   .talk-type-poster { background: var(--tag-multiferroics-bg); color: var(--tag-multiferroics); }
 
@@ -160,6 +161,7 @@
 
   /* Footer */
   footer { max-width: 1400px; margin: 3rem auto 0; padding: 1.5rem 3rem 3rem; border-top: 1px solid var(--border); text-align: center; font-size: 0.78rem; color: var(--text-light); }
+  footer .footer-updated { display: block; margin-top: 0.4rem; font-size: 0.72rem; color: var(--text-light); opacity: 0.8; }
 
   /* Animations */
   .section-panel { opacity: 0; transform: translateY(12px); animation: fadeUp 0.4s ease forwards; }
@@ -242,7 +244,7 @@ fetch('content.json').then(r => r.json()).then(render)
 
 function render(D) {
   $('.site-name').textContent = D.site.name;
-  $('footer').textContent = D.site.footer;
+  $('footer').innerHTML = D.site.footer + (D.site.lastUpdated ? `<span class="footer-updated">Last updated: ${D.site.lastUpdated}</span>` : '');
   document.title = D.site.name;
 
   // HOME
@@ -323,10 +325,12 @@ function render(D) {
       ${D.publications.items.map((p, i) => `
         <div class="pub-item" style="animation-delay:${0.05 + i * 0.05}s">
           <div class="pub-number">${p.number}.</div>
-          <div class="pub-title">${p.title}</div>
-          <div class="pub-authors">${bold(p.authors)}</div>
-          <div class="pub-journal"><a href="${p.url}" target="_blank">${p.journal}</a> ${p.citation}</div>
-          ${p.arxiv ? `<div class="pub-preprint">Arxiv Preprint: <a href="${p.arxivUrl}" target="_blank">${p.arxiv}</a> (${p.arxivYear})</div>` : ''}
+          <div class="pub-body">
+            <div class="pub-title">${p.title}</div>
+            <div class="pub-authors">${bold(p.authors)}</div>
+            <div class="pub-journal"><a href="${p.url}" target="_blank">${p.journal}</a> ${p.citation}</div>
+            ${p.arxiv ? `<div class="pub-preprint">Arxiv Preprint: <a href="${p.arxivUrl}" target="_blank">${p.arxiv}</a> (${p.arxivYear})</div>` : ''}
+          </div>
         </div>`).join('')}
     </div>`;
 
