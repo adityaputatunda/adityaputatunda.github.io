@@ -256,8 +256,8 @@
       <li><a onclick="showTab('home')" data-tab="home" class="active">Home</a></li>
       <li><a onclick="showTab('research')" data-tab="research">Research</a></li>
       <li><a onclick="showTab('publications')" data-tab="publications">Publications</a></li>
+      <li><a onclick="showTab('misc')" data-tab="misc">Resources</a></li>
       <li><a onclick="showTab('about')" data-tab="about">About</a></li>
-      <li><a onclick="showTab('misc')" data-tab="misc">Miscellaneous</a></li>
       <li><a onclick="showTab('contact')" data-tab="contact">Contact</a></li>
     </ul>
   </div>
@@ -478,7 +478,7 @@ function render(D) {
     </div>`).join('');
 
   $('#tab-misc').innerHTML = `
-    <div class="page-intro"><div class="page-intro-inner"><h1>Miscellaneous</h1></div></div>
+    <div class="page-intro"><div class="page-intro-inner"><h1>Resources</h1></div></div>
     <div class="misc-page">
       <div class="misc-grid">
         ${repoHTML ? `
