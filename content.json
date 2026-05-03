@@ -1,7 +1,8 @@
 {
   "site": {
     "name": "Aditya Putatunda",
-    "footer": "Aditya Putatunda · PhD, Physics"
+    "footer": "Aditya Putatunda · PhD, Physics",
+    "lastUpdated": "03-05-2026"
   },
 
   "profiles": [
@@ -271,7 +272,7 @@
   },
 
   "talks": {
-    "intro": "Conference contributions, invited talks, and posters.",
+    "intro": "Research Presentations, Conference contributions, Workshops and posters.",
     "items": [
       { "title": "Magnetoelectric control in type-I multiferroics via domain walls", "type": "talk", "venues": [
           { "date": "Jul 2025", "venue": "FisMat 2025, Venice" },
