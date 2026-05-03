@@ -297,7 +297,7 @@
       {
         "name": "AMaRaNTA",
         "url": "https://github.com/AMaRaNTA-code/AMaRaNTA",
-        "description": "AiiDA-based high-throughput workflow for automated calculation of magnetic exchange parameters in 2D magnets.",
+        "description": "AiiDA-based high-throughput workflow for automated calculation of magnetic exchange parameters in complex materials.",
         "tags": [
           "Python",
           "AiiDA",
@@ -366,6 +366,7 @@
       {
         "title": "Magnetoelectric control in type-I multiferroics via domain walls",
         "type": "talk",
+        "slides": "slides/DPG_Regensburg_2025.pdf",
         "venues": [
           {
             "date": "Jul 2025",
@@ -393,7 +394,8 @@
         "date": "Aug 2022",
         "title": "Twisted CrI₃ bilayer",
         "venue": "Psi-K Conference, Lausanne",
-        "type": "poster"
+        "type": "poster",
+	"slides": "slides/2022posterLausanne.pdf"
       },
       {
         "date": "Jul 2022",
@@ -404,19 +406,22 @@
         "date": "Mar 2020",
         "title": "APS March Meeting",
         "venue": "Denver — canceled (COVID-19)",
-        "type": "talk"
+        "type": "talk",
+        "slides": "slides/March_Meeting_2020.pdf"
       },
       {
         "date": "Mar 2019",
         "title": "Lorenz number estimates from the Seebeck coefficient",
         "venue": "APS March Meeting, Boston",
-        "type": "talk"
+        "type": "talk",
+        "slides": "slides/APS_Lorenz_number_Boston_2019.pdf"
       },
       {
         "date": "Mar 2018",
         "title": "Thermoelectric properties of NaSbSe₂",
         "venue": "APS March Meeting, Los Angeles",
-        "type": "talk"
+        "type": "talk",
+        "slides": "slides/NaSbSe2_March_Meeting_2018.pdf"
       },
       {
         "date": "2014",
