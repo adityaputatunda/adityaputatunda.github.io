@@ -303,7 +303,17 @@
           "AiiDA",
           "VASP"
         ]
-      }
+      },
+     {
+        "name": "gdi2-4sm-Jvar",
+        "url": "https://github.com/adityaputatunda/gdi2-4sm-Jvar",
+        "description": "4-State Energy Mapping Workflow for 2D GdI₂",
+        "tags": [
+          "ASE",
+	  "Python",
+	  "VASP"
+        ]
+     }
     ]
   },
   "about": {
