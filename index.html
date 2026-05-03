@@ -147,8 +147,8 @@
   .talk-type-poster { background: var(--tag-multiferroics-bg); color: var(--tag-multiferroics); }
   .talk-type-workshop { background: var(--tag-methods-bg); color: var(--tag-methods); }
   .talk-type-other { background: var(--border-light); color: var(--text-mid); }
-  .slides-link { color: var(--accent); text-decoration: none; font-weight: 500; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
-  .slides-link:hover { border-bottom-color: var(--accent); }
+  .asset-link { display: inline-flex; align-items: center; gap: 0.25rem; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.02em; color: var(--accent); background: var(--accent-light); padding: 0.2rem 0.55rem; border-radius: 3px; text-decoration: none; transition: all 0.2s; margin-left: 0.45rem; vertical-align: middle; }
+  .asset-link:hover { background: var(--accent); color: #fff; }
 
   /* Misc page sections */
   .misc-page { max-width: 1400px; margin: 0 auto; padding: 0 3rem 3rem; }
@@ -439,7 +439,7 @@ function render(D) {
       badge = ` <span class="talk-type ${typeClass}">${typeKey}</span>`;
     }
     const cls = 'talk-item' + (hidden ? ' hidden-extra' : '');
-    const slidesHTML = url => url ? ` · <a href="${url}" target="_blank" class="slides-link">Slides ↓</a>` : '';
+    const slidesHTML = url => url ? ` <a href="${url}" target="_blank" class="asset-link">Slides ↓</a>` : '';
     if (t.venues) {
       const venueLines = t.venues.map(v =>
         `<div class="talk-venue-line"><span class="talk-venue-date">${v.date}</span> · ${v.venue}${slidesHTML(v.slides || t.slides)}</div>`
