@@ -7,6 +7,7 @@
 
   "profiles": [
     { "label": "Google Scholar", "url": "https://scholar.google.com/citations?hl=en&user=37RlrzsAAAAJ&view_op=list_works&sortby=pubdate" },
+    { "label": "GitHub", "url": "https://github.com/adityaputatunda" },
     { "label": "LinkedIn", "url": "https://www.linkedin.com/in/aditya-putatunda/" },
     { "label": "ORCID", "url": "https://orcid.org/0000-0001-9364-9615" },
     { "label": "ResearchGate", "url": "https://www.researchgate.net/profile/Aditya-Putatunda" },
