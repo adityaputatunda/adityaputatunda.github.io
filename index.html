@@ -132,6 +132,8 @@
   .talk-item { display: grid; grid-template-columns: 100px 1fr; gap: 1.25rem; padding: 0.7rem 0; border-bottom: 1px solid var(--border-light); align-items: baseline; }
   .talk-item:first-child { border-top: 2px solid var(--text); padding-top: 0.9rem; }
   .talk-item:last-child { border-bottom: none; }
+  .talk-item.hidden-extra { display: none; }
+  .talks-list.expanded .talk-item.hidden-extra { display: grid; }
   .talk-date { font-size: 0.76rem; color: var(--text-light); font-weight: 500; white-space: nowrap; }
   .talk-title { font-family: var(--serif); font-size: 0.92rem; font-weight: 600; color: var(--text); line-height: 1.35; margin-bottom: 0.15rem; }
   .talk-venue { font-size: 0.82rem; color: var(--text-muted); line-height: 1.45; }
@@ -143,6 +145,30 @@
   .talk-type-poster { background: var(--tag-multiferroics-bg); color: var(--tag-multiferroics); }
   .talk-type-workshop { background: var(--tag-methods-bg); color: var(--tag-methods); }
   .talk-type-other { background: var(--border-light); color: var(--text-mid); }
+
+  /* Misc page sections */
+  .misc-page { max-width: 1400px; margin: 0 auto; padding: 0 3rem 3rem; }
+  .misc-section { margin-top: 2rem; }
+  .misc-section:first-child { margin-top: 0; }
+  .misc-section-title { font-family: var(--serif); font-size: 1.25rem; font-weight: 600; letter-spacing: -0.01em; padding-top: 1.1rem; padding-bottom: 0.9rem; border-top: 2px solid var(--text); margin-bottom: 0; }
+  .misc-section .talks-list, .misc-section .repo-list { padding: 0; }
+
+  /* Repo list */
+  .repo-list { display: grid; gap: 0; }
+  .repo-item { padding: 0.85rem 0; border-bottom: 1px solid var(--border-light); }
+  .repo-item:last-child { border-bottom: none; }
+  .repo-name { font-family: var(--serif); font-size: 1rem; font-weight: 600; margin-bottom: 0.2rem; }
+  .repo-name a { color: var(--text); text-decoration: none; border-bottom: 1px solid transparent; transition: all 0.2s; }
+  .repo-name a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+  .repo-name .repo-arrow { color: var(--text-light); font-size: 0.85em; margin-left: 0.3rem; }
+  .repo-desc { font-size: 0.86rem; color: var(--text-muted); line-height: 1.55; margin-bottom: 0.35rem; }
+  .repo-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+  .repo-tag { font-size: 0.66rem; font-weight: 600; padding: 0.1rem 0.45rem; background: var(--border-light); color: var(--text-mid); border-radius: 2px; letter-spacing: 0.02em; }
+
+  /* Expand toggle */
+  .expand-toggle { display: inline-flex; align-items: center; gap: 0.35rem; font-size: 0.82rem; font-weight: 600; color: var(--accent); cursor: pointer; margin-top: 0.9rem; padding: 0; background: none; border: none; border-bottom: 1px solid transparent; transition: all 0.2s; font-family: inherit; }
+  .expand-toggle:hover { border-bottom-color: var(--accent); gap: 0.5rem; }
+  .expand-toggle .arrow { font-size: 0.65rem; transition: transform 0.3s; display: inline-block; }
 
   /* Contact */
   .contact-content { max-width: 1400px; margin: 0 auto; padding: 0 3rem 4rem; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
@@ -369,32 +395,59 @@ function render(D) {
       </div>
     </div>`;
 
-  // TALKS
+  // MISCELLANEOUS (Code + Talks)
+  const PREVIEW = 3;
+
+  const repoHTML = (D.code && D.code.items && D.code.items.length)
+    ? D.code.items.map(r => `
+        <div class="repo-item">
+          <div class="repo-name"><a href="${r.url}" target="_blank">${r.name}<span class="repo-arrow">↗</span></a></div>
+          <div class="repo-desc">${r.description}</div>
+          ${r.tags && r.tags.length ? `<div class="repo-tags">${r.tags.map(t => `<span class="repo-tag">${t}</span>`).join('')}</div>` : ''}
+        </div>`).join('')
+    : '';
+
+  const talkRow = (t, i, hidden) => {
+    let badge = '';
+    if (t.type) {
+      const typeKey = t.type.toLowerCase();
+      const typeClassMap = { talk: 'talk-type-talk', poster: 'talk-type-poster', workshop: 'talk-type-workshop' };
+      const typeClass = typeClassMap[typeKey] || 'talk-type-other';
+      badge = ` <span class="talk-type ${typeClass}">${typeKey}</span>`;
+    }
+    const cls = 'talk-item' + (hidden ? ' hidden-extra' : '');
+    if (t.venues) {
+      const venueLines = t.venues.map(v =>
+        `<div class="talk-venue-line"><span class="talk-venue-date">${v.date}</span> · ${v.venue}</div>`
+      ).join('');
+      return `<div class="${cls}" style="animation-delay:${0.05 + i * 0.02}s">
+        <div class="talk-date">${t.venues[0].date}</div>
+        <div><div class="talk-title">${t.title}${badge}</div><div class="talk-venues">${venueLines}</div></div>
+      </div>`;
+    }
+    return `<div class="${cls}" style="animation-delay:${0.05 + i * 0.02}s">
+      <div class="talk-date">${t.date}</div>
+      <div><div class="talk-title">${t.title}${badge}</div><div class="talk-venue">${t.venue}</div></div>
+    </div>`;
+  };
+
+  const totalTalks = D.talks.items.length;
+  const hiddenCount = Math.max(0, totalTalks - PREVIEW);
+  const talksHTML = D.talks.items.map((t, i) => talkRow(t, i, i >= PREVIEW)).join('');
+
   $('#tab-misc').innerHTML = `
-    <div class="page-intro"><h1>Talks &amp; Presentations</h1><p>${D.talks.intro}</p></div>
-    <div class="talks-list">
-      ${D.talks.items.map((t, i) => {
-        let badge = '';
-        if (t.type) {
-          const typeKey = t.type.toLowerCase();
-          const typeClassMap = { talk: 'talk-type-talk', poster: 'talk-type-poster', workshop: 'talk-type-workshop' };
-          const typeClass = typeClassMap[typeKey] || 'talk-type-other';
-          badge = ` <span class="talk-type ${typeClass}">${typeKey}</span>`;
-        }
-        if (t.venues) {
-          const venueLines = t.venues.map(v =>
-            `<div class="talk-venue-line"><span class="talk-venue-date">${v.date}</span> · ${v.venue}</div>`
-          ).join('');
-          return `<div class="talk-item talk-item-multi" style="animation-delay:${0.05 + i * 0.02}s">
-            <div class="talk-date">${t.venues[0].date}</div>
-            <div><div class="talk-title">${t.title}${badge}</div><div class="talk-venues">${venueLines}</div></div>
-          </div>`;
-        }
-        return `<div class="talk-item" style="animation-delay:${0.05 + i * 0.02}s">
-          <div class="talk-date">${t.date}</div>
-          <div><div class="talk-title">${t.title}${badge}</div><div class="talk-venue">${t.venue}</div></div>
-        </div>`;
-      }).join('')}
+    <div class="page-intro"><h1>Miscellaneous</h1></div>
+    <div class="misc-page">
+      ${repoHTML ? `
+      <div class="misc-section">
+        <h2 class="misc-section-title">Code</h2>
+        <div class="repo-list">${repoHTML}</div>
+      </div>` : ''}
+      <div class="misc-section">
+        <h2 class="misc-section-title">Talks &amp; Presentations</h2>
+        <div class="talks-list" id="talks-list">${talksHTML}</div>
+        ${hiddenCount > 0 ? `<button class="expand-toggle" onclick="toggleTalks(this)" data-more="Show ${hiddenCount} more" data-less="Show fewer"><span class="arrow">▾</span> <span class="label">Show ${hiddenCount} more</span></button>` : ''}
+      </div>
     </div>`;
 
   // CONTACT
@@ -435,9 +488,20 @@ function showTab(tabId) {
     if (ov) ov.classList.remove('has-active');
   }
   window.scrollTo({ top: 0, behavior: 'smooth' });
-  target.querySelectorAll('.pub-item, .section-panel, .talk-item').forEach(el => {
+  target.querySelectorAll('.pub-item, .section-panel, .talk-item, .repo-item').forEach(el => {
     el.style.animation = 'none'; el.offsetHeight; el.style.animation = '';
   });
+}
+
+// Talks expand/collapse
+function toggleTalks(btn) {
+  const list = document.getElementById('talks-list');
+  if (!list) return;
+  const expanded = list.classList.toggle('expanded');
+  const label = btn.querySelector('.label');
+  const arrow = btn.querySelector('.arrow');
+  label.textContent = expanded ? btn.dataset.less : btn.dataset.more;
+  arrow.textContent = expanded ? '▴' : '▾';
 }
 
 // Research drawers
