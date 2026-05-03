@@ -61,6 +61,7 @@
   /* Research */
   .page-intro { max-width: 1400px; margin: 0 auto; padding: 3rem 3rem 1rem; }
   .page-intro-inner { padding-bottom: 0.9rem; border-bottom: 1px solid var(--border); }
+  .page-intro-inner.bare { border-bottom: none; padding-bottom: 0; }
   .page-intro h1 { font-family: var(--serif); font-size: 2.2rem; font-weight: 300; letter-spacing: -0.02em; margin-bottom: 0.6rem; }
   .page-intro p { font-size: 0.92rem; color: var(--text-muted); line-height: 1.7; max-width: 960px; }
   .sections-overview { max-width: 1400px; margin: 0 auto; padding: 0 3rem 2rem; display: grid; grid-template-columns: 1fr 1fr 1fr; column-gap: 2rem; row-gap: 0; }
@@ -344,7 +345,7 @@ function render(D) {
   });
 
   $('#tab-research').innerHTML = `
-    <div class="page-intro"><div class="page-intro-inner"><h1>Research</h1><p>${D.research.intro}</p></div></div>
+    <div class="page-intro"><div class="page-intro-inner bare"><h1>Research</h1><p>${D.research.intro}</p></div></div>
     <div class="sections-overview">${panels}${drawers}</div>`;
 
   // PUBLICATIONS
