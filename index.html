@@ -156,6 +156,24 @@
   .misc-section .talks-list, .misc-section .repo-list { padding: 0; }
   .misc-section .talk-item:first-child { border-top: none; padding-top: 0.7rem; }
 
+  /* Misc 3-col grid */
+  .misc-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2.5rem; align-items: start; margin-top: 0.5rem; }
+  .misc-grid .misc-section { margin-top: 0; }
+  .misc-grid .misc-section-title { font-size: 1.05rem; }
+  .misc-grid .talk-item { grid-template-columns: 1fr; gap: 0.2rem; padding: 0.7rem 0; }
+  .misc-grid .talk-item .talk-date { font-size: 0.72rem; order: -1; }
+  .misc-grid .talk-title { font-size: 0.92rem; }
+
+  /* Tutorial list */
+  .tutorial-list { display: grid; gap: 0; }
+  .tutorial-item { padding: 0.85rem 0; border-bottom: 1px solid var(--border-light); }
+  .tutorial-item:last-child { border-bottom: none; }
+  .tutorial-name { font-family: var(--serif); font-size: 1rem; font-weight: 600; line-height: 1.35; margin-bottom: 0.25rem; color: var(--text); }
+  .tutorial-desc { font-size: 0.86rem; color: var(--text-muted); line-height: 1.55; }
+  .tutorial-desc a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
+  .tutorial-desc a:hover { border-bottom-color: var(--accent); }
+  .tutorial-status { display: inline-block; font-size: 0.62rem; font-weight: 600; padding: 0.1rem 0.45rem; background: var(--tag-discovery-bg); color: var(--tag-discovery); border-radius: 2px; letter-spacing: 0.02em; margin-left: 0.4rem; vertical-align: middle; }
+
   /* Repo list */
   .repo-list { display: grid; gap: 0; }
   .repo-item { padding: 0.85rem 0; border-bottom: 1px solid var(--border-light); }
@@ -211,6 +229,7 @@
     .hero-text h1 { font-size: 2.1rem; }
     .news-items { grid-template-columns: 1fr; }
     .sections-overview { grid-template-columns: 1fr; gap: 0; }
+    .misc-grid { grid-template-columns: 1fr; gap: 2rem; }
     .section-panel { border-top-width: 1px; }
     .section-drawer { grid-row: auto; }
     #panel-0 { order: 1; } #drawer-0 { order: 2; }
@@ -438,18 +457,45 @@ function render(D) {
   const hiddenCount = Math.max(0, totalTalks - PREVIEW);
   const talksHTML = D.talks.items.map((t, i) => talkRow(t, i, i >= PREVIEW)).join('');
 
+  // TODO: move tutorials to content.json
+  const tutorials = [
+    {
+      title: 'Monte Carlo simulation from first-principles exchange data',
+      desc: 'In <em>Vampire</em> — T<sub>c</sub> estimate, ground-state spin structure, etc.'
+    },
+    {
+      title: 'Band unfolding in VASP',
+      desc: 'Walkthrough using <a href="https://github.com/QijingZheng/VaspBandUnfolding" target="_blank">VaspBandUnfolding ↗</a>'
+    },
+    {
+      title: 'Electronic polarization via the Berry Phase method',
+      desc: 'DFT calculation guide.'
+    }
+  ];
+  const tutorialsHTML = tutorials.map(t => `
+    <div class="tutorial-item">
+      <div class="tutorial-name">${t.title}<span class="tutorial-status">coming soon</span></div>
+      <div class="tutorial-desc">${t.desc}</div>
+    </div>`).join('');
+
   $('#tab-misc').innerHTML = `
     <div class="page-intro"><div class="page-intro-inner"><h1>Miscellaneous</h1></div></div>
     <div class="misc-page">
-      ${repoHTML ? `
-      <div class="misc-section">
-        <h2 class="misc-section-title">Code</h2>
-        <div class="repo-list">${repoHTML}</div>
-      </div>` : ''}
-      <div class="misc-section">
-        <h2 class="misc-section-title">Talks &amp; Presentations</h2>
-        <div class="talks-list" id="talks-list">${talksHTML}</div>
-        ${hiddenCount > 0 ? `<button class="expand-toggle" onclick="toggleTalks(this)" data-more="Show more" data-less="Show fewer"><span class="arrow">▾</span> <span class="label">Show more</span></button>` : ''}
+      <div class="misc-grid">
+        ${repoHTML ? `
+        <div class="misc-section">
+          <h2 class="misc-section-title">Code</h2>
+          <div class="repo-list">${repoHTML}</div>
+        </div>` : ''}
+        <div class="misc-section">
+          <h2 class="misc-section-title">Tutorials</h2>
+          <div class="tutorial-list">${tutorialsHTML}</div>
+        </div>
+        <div class="misc-section">
+          <h2 class="misc-section-title">Talks &amp; Presentations</h2>
+          <div class="talks-list" id="talks-list">${talksHTML}</div>
+          ${hiddenCount > 0 ? `<button class="expand-toggle" onclick="toggleTalks(this)" data-more="Show more" data-less="Show fewer"><span class="arrow">▾</span> <span class="label">Show more</span></button>` : ''}
+        </div>
       </div>
     </div>`;
 
