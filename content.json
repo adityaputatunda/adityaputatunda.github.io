@@ -297,7 +297,7 @@
       {
         "name": "AMaRaNTA",
         "url": "https://github.com/AMaRaNTA-code/AMaRaNTA",
-        "description": "AiiDA-based high-throughput workflow for automated calculation of magnetic exchange parameters in complex materials.",
+        "description": "AiiDA-based high-throughput workflow for automated calculation of magnetic exchange parameters in 2D magnets.",
         "tags": [
           "Python",
           "AiiDA",
