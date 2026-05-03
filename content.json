@@ -279,14 +279,14 @@
           { "date": "Mar 2025", "venue": "DPG Spring Meeting, Regensburg" }
         ]
       },
-      { "date": "Jan 2024", "title": "Workshop on Twistronics and Moiré Materials", "venue": "ICTP, Trieste" },
+      { "date": "Jan 2024", "title": "Workshop on Twistronics and Moiré Materials", "type": "Workshop", "venue": "ICTP, Trieste" },
       { "date": "Mar 2023", "title": "DPG Spring Meeting", "venue": "Berlin", "type": "talk" },
       { "date": "Aug 2022", "title": "Twisted CrI₃ bilayer", "venue": "Psi-K Conference, Lausanne", "type": "poster" },
       { "date": "Jul 2022", "title": "SCES 2022", "venue": "Amsterdam" },
       { "date": "Mar 2020", "title": "APS March Meeting", "venue": "Denver — canceled (COVID-19)", "type": "talk" },
       { "date": "Mar 2019", "title": "Lorenz number estimates from the Seebeck coefficient", "venue": "APS March Meeting, Boston", "type": "talk" },
       { "date": "Mar 2018", "title": "Thermoelectric properties of NaSbSe₂", "venue": "APS March Meeting, Los Angeles", "type": "talk" },
-      { "date": "2014", "title": "MASTANI Summer School", "venue": "Pune, India" }
+      { "date": "2014", "title": "MASTANI Summer School", "type": "Workshop", "venue": "Pune, India" }
     ]
   },
 
