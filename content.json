@@ -24,6 +24,11 @@
     "summary": "I study materials where magnetic and electric properties are intertwined, thermoelectric materials that convert waste heat into electricity, and build computational tools to discover and screen new ones at scale.",
     "news": [
       {
+        "date": "Apr 2026",
+        "title": "Paper accepted in Adv. Theory & Simuls.",
+        "blurb": "Latest collaboration work: Polar Decomposition of Frequency-dependent Green’s Functions in Fractional Viscoelastic Media."
+      },
+      {
         "date": "2025",
         "title": "New paper in Physical Review B",
         "blurb": "Domain walls and vortices in multiferroic BaCoSiO₄ — exploring magnetoelectric control via trimerization."
