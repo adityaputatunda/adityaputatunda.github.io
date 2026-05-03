@@ -103,7 +103,7 @@
   /* Publications */
   .publications-list { max-width: 1400px; margin: 0 auto; padding: 0 3rem 2rem; }
   .pub-item { display: grid; grid-template-columns: 2.2rem 1fr; column-gap: 0.5rem; padding: 0.9rem 0; }
-  .pub-item:first-child { border-top: 2px solid var(--text); padding-top: 1.1rem; }
+  .pub-item:first-child { border-top: none; padding-top: 0.9rem; }
   .pub-number { font-family: var(--serif); font-size: 1.05rem; font-weight: 600; color: var(--text-light); line-height: 1.4; }
   .pub-body { min-width: 0; }
   .pub-title { font-family: var(--serif); font-size: 1.05rem; font-weight: 600; color: var(--text); line-height: 1.4; margin-bottom: 0.2rem; }
@@ -130,7 +130,7 @@
   /* Talks */
   .talks-list { max-width: 1400px; margin: 0 auto; padding: 0 3rem 2rem; }
   .talk-item { display: grid; grid-template-columns: 100px 1fr; gap: 1.25rem; padding: 0.7rem 0; border-bottom: 1px solid var(--border-light); align-items: baseline; }
-  .talk-item:first-child { border-top: 2px solid var(--text); padding-top: 0.9rem; }
+  .talk-item:first-child { border-top: none; padding-top: 0.7rem; }
   .talk-item:last-child { border-bottom: none; }
   .talk-item.hidden-extra { display: none; }
   .talks-list.expanded .talk-item.hidden-extra { display: grid; }
@@ -148,10 +148,12 @@
 
   /* Misc page sections */
   .misc-page { max-width: 1400px; margin: 0 auto; padding: 0 3rem 3rem; }
-  .misc-section { margin-top: 2rem; }
-  .misc-section:first-child { margin-top: 0; }
-  .misc-section-title { font-family: var(--serif); font-size: 1.25rem; font-weight: 600; letter-spacing: -0.01em; padding-top: 1.1rem; padding-bottom: 0.9rem; border-top: 2px solid var(--text); margin-bottom: 0; }
+  .misc-section { margin-top: 3.5rem; }
+  .misc-section:first-child { margin-top: 1rem; }
+  .misc-section-title { font-family: var(--serif); font-size: 1.25rem; font-weight: 600; letter-spacing: -0.01em; margin-bottom: 1.5rem; position: relative; display: inline-block; }
+  .misc-section-title::after { content: ''; position: absolute; left: 0; bottom: -0.55rem; width: 32px; height: 2px; background: var(--accent); }
   .misc-section .talks-list, .misc-section .repo-list { padding: 0; }
+  .misc-section .talk-item:first-child { border-top: none; padding-top: 0.7rem; }
 
   /* Repo list */
   .repo-list { display: grid; gap: 0; }
@@ -446,7 +448,7 @@ function render(D) {
       <div class="misc-section">
         <h2 class="misc-section-title">Talks &amp; Presentations</h2>
         <div class="talks-list" id="talks-list">${talksHTML}</div>
-        ${hiddenCount > 0 ? `<button class="expand-toggle" onclick="toggleTalks(this)" data-more="Show ${hiddenCount} more" data-less="Show fewer"><span class="arrow">▾</span> <span class="label">Show ${hiddenCount} more</span></button>` : ''}
+        ${hiddenCount > 0 ? `<button class="expand-toggle" onclick="toggleTalks(this)" data-more="Show more" data-less="Show fewer"><span class="arrow">▾</span> <span class="label">Show more</span></button>` : ''}
       </div>
     </div>`;
 
