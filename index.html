@@ -289,7 +289,7 @@ function renderTag(t) {
   return `<span class="tag ${cls}">${label}</span>`;
 }
 
-fetch('content.json').then(r => r.json()).then(render)
+fetch('content.json?v=' + Date.now()).then(r => r.json()).then(render)
   .catch(e => console.error('Failed to load content.json:', e));
 
 function render(D) {
