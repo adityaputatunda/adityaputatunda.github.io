@@ -38,7 +38,7 @@
     "news": [
       {
         "date": "Apr 2026",
-        "title": "Paper accepted in Adv. Theory & Simulations.",
+        "title": "New publication in Adv. Theory & Simulations.",
         "blurb": "Latest collaboration work: Polar Decomposition of Frequency-dependent Green’s Functions in Fractional Viscoelastic Media."
       },
       {
@@ -49,7 +49,7 @@
       {
         "date": "Jul 2025",
         "title": "Talk at FisMat 2025, Venice",
-        "blurb": "Presenting on magnetoelectric control in type-I multiferroics via domain walls."
+        "blurb": "Presented talk on magnetoelectric control in type-I multiferroics via domain walls."
       },
       {
         "date": "2025",
@@ -212,6 +212,14 @@
   "publications": {
     "intro": "In chronological order.",
     "items": [
+      {
+        "number": 10,
+        "title": "Polar Decomposition of Frequency‐Dependent Green's Functions in Fractional Viscoelastic Media",
+        "authors": "Avradip Ghosh, Avinash Kumar Both, **Aditya Putatunda**",
+        "journal": "Advanced Theory and Simulations",
+        "citation": "9, e01861 (2026)",
+        "url": "https://advanced.onlinelibrary.wiley.com/doi/abs/10.1002/adts.202501861"
+      },
       {
         "number": 9,
         "title": "Group IV binary carbides with double layer honeycomb lattice structure",
