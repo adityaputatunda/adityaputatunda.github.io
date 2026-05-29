@@ -24,7 +24,7 @@
   /* Nav */
   nav { position: sticky; top: 0; z-index: 100; background: linear-gradient(135deg, #c7dbe2, #8191a9); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
   .nav-inner { max-width: 1400px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 56px; padding: 0 3rem; }
-  .site-name { font-family: var(--serif); font-weight: 600; font-size: 1.1rem; color: #fff; text-decoration: none; cursor: pointer; flex-shrink: 0; }
+  .site-name { font-family: var(--serif); font-weight: 600; font-size: 1.1rem; color: var(--text); text-decoration: none; cursor: pointer; flex-shrink: 0; }
   .nav-links { display: flex; gap: 1.8rem; list-style: none; }
   .nav-links a { font-size: 0.92rem; font-weight: 500; color: rgba(255,255,255,0.75); text-decoration: none; letter-spacing: 0.01em; transition: color 0.2s; cursor: pointer; position: relative; }
   .nav-links a:hover { color: #fff; }
@@ -293,7 +293,7 @@ fetch('content.json?v=' + Date.now()).then(r => r.json()).then(render)
   .catch(e => console.error('Failed to load content.json:', e));
 
 function render(D) {
-  $('.site-name').textContent = D.site.name;
+  $('.site-name').textContent = 'Dr. ' + D.site.name;
   $('footer').innerHTML = D.site.footer + (D.site.lastUpdated ? `<span class="footer-updated">Last updated: ${D.site.lastUpdated}</span>` : '');
   document.title = D.site.name;
 
