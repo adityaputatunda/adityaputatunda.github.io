@@ -2,7 +2,7 @@
   "site": {
     "name": "Aditya Putatunda",
     "footer": "Aditya Putatunda · PhD, Physics",
-    "lastUpdated": "26-05-2026"
+    "lastUpdated": "29-05-2026"
   },
   "profiles": [
     {
@@ -36,6 +36,11 @@
     ],
     "summary": "I study materials where magnetic and electric properties are intertwined, thermoelectric materials that convert waste heat into electricity, and build computational tools to discover and screen new ones at scale.",
     "news": [
+      {
+        "date": "May 2026",
+        "title": "AMaRaNTA data is now public",
+        "blurb": "The results of high-throughput study of magnetic exchange constants for 2D magnetic systems (LDA) is now live on <a href=\"https://doi.org/10.24435/materialscloud:he-3k\" target=\"_blank\" style=\"color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent)\">Materials Cloud</a>"
+      },
       {
         "date": "Apr 2026",
         "title": "New publication in Adv. Theory & Simulations.",
@@ -302,6 +307,15 @@
   },
   "code": {
     "items": [
+      {
+        "name": "AMaRaNTA-dataset",
+        "url": "https://archive.materialscloud.org/records/wygeh-jrc57",
+        "description": "The results obtained from the workflow is available for public access",
+	"tags": ["Python",
+          "AiiDA",
+          "VASP"
+        ]
+      },
       {
         "name": "AMaRaNTA",
         "url": "https://github.com/AMaRaNTA-code/AMaRaNTA",
